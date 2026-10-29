@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galeri | Pondok Pesantren Al-Istiqomah Purwojati</title>
+<meta name="description" content="Galeri foto dan video kegiatan Pondok Pesantren Al-Istiqomah Purwojati, Banyumas.">
+<meta property="og:title" content="Galeri | Pondok Pesantren Al-Istiqomah Purwojati">
+<meta property="og:description" content="Galeri foto dan video kegiatan Pondok Pesantren Al-Istiqomah Purwojati, Banyumas.">
+<meta property="og:image" content="img/logo.png">
+<meta name="theme-color" content="#0d5c33">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="galeri">
+<div id="site-header"></div>
+
+<main id="konten">
+<section class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Beranda</a><span>/</span><b>Galeri</b></div>
+    <span class="pill"><svg class="ico"><use href="#i-images"/></svg>Foto &amp; Video</span>
+    <h1>Galeri Pondok Pesantren Al-Istiqomah Purwojati</h1>
+    <p>Dokumentasi kegiatan santri, fasilitas, dan momen berharga di Ma'had Al-Istiqomah, dari jenjang TA, MI, Mutawasithoh, hingga Tsanawiyah.</p>
+  </div>
+</section>
+<div class="rainbow"></div>
+
+<section class="block" id="foto">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title"><svg class="ico"><use href="#i-images"/></svg>Galeri Foto</h2>
+        <p class="sec-sub">Klik gambar untuk melihat lebih besar</p>
+      </div>
+    </div>
+    <div class="filters" id="filters" role="toolbar" aria-label="Filter kategori"></div>
+    <div class="grid" id="grid"></div>
+    <div class="more">
+      <a class="btn-outline" data-href="ig" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg>Lihat Lebih Banyak Foto di Instagram</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<section class="block" id="video">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title"><svg class="ico" style="color:var(--red)"><use href="#i-yt"/></svg>Video Kegiatan</h2>
+        <p class="sec-sub">Rekaman kajian, haflah, dan kegiatan santri</p>
+      </div>
+      <a class="btn-red-o" data-href="yt" target="_blank" rel="noopener"><svg class="ico"><use href="#i-yt"/></svg>Lihat Semua Video</a>
+    </div>
+    <div class="vgrid" id="vgrid"></div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title"><svg class="ico" style="color:#dc2743"><use href="#i-ig"/></svg>Instagram Ma'had</h2>
+        <p class="sec-sub" data-site="ig"></p>
+      </div>
+    </div>
+    <div class="ig">
+      <div class="glyph"><svg class="ico"><use href="#i-ig"/></svg></div>
+      <h3>Ikuti Kami di Instagram</h3>
+      <p>Foto dan video terbaru kegiatan pondok kami bagikan di akun Instagram resmi Ma'had Al-Istiqomah Purwojati.</p>
+      <a class="btn-ig" data-href="ig" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg>@mahadalistiqomahpurwojati</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+APP.renderGallery();
+APP.renderVideos();
+</script>
+</body>
+</html>

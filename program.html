@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Program Pendidikan | Pondok Pesantren Al-Istiqomah Purwojati</title>
+<meta name="description" content="Program pendidikan Pondok Pesantren Al-Istiqomah Purwojati: TA, MI, Mutawasithoh, dan Tsanawiyah.">
+<meta property="og:title" content="Program Pendidikan | Pondok Pesantren Al-Istiqomah Purwojati">
+<meta property="og:description" content="Program pendidikan Pondok Pesantren Al-Istiqomah Purwojati: TA, MI, Mutawasithoh, dan Tsanawiyah.">
+<meta property="og:image" content="img/logo.png">
+<meta name="theme-color" content="#0d5c33">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="program">
+<div id="site-header"></div>
+
+<main id="konten">
+<section class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Beranda</a><span>/</span><b>Program</b></div>
+    <span class="pill"><svg class="ico"><use href="#i-book"/></svg>Jenjang Pendidikan</span>
+    <h1>Program Pendidikan</h1>
+    <p>Empat jenjang yang saling bersambung, dari Taman Anak hingga Tsanawiyah, dengan perpaduan ilmu syar'i, Al-Qur'an, bahasa Arab, dan pelajaran umum.</p>
+  </div>
+</section>
+<div class="rainbow"></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="ptabs" id="ptabs"></div>
+    <div id="plist"></div>
+    <p class="note"><svg class="ico"><use href="#i-pen"/></svg><span>Daftar materi di atas adalah gambaran umum. Ubah sesuai kurikulum pondok di file <code>assets/js/data.js</code> bagian <b>PROGRAM</b>.</span></p>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="psb-band">
+      <div>
+        <h2>Tertarik mendaftarkan putra-putri Anda?</h2>
+        <p>Lihat syarat dan alur Penerimaan Santri Baru <span data-site="tahun"></span>.</p>
+      </div>
+      <div class="cta-row"><a href="psb.html" class="btn btn-gold"><svg class="ico"><use href="#i-pen"/></svg>Info PSB</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const { $, esc, ic, ph } = APP;
+$("#ptabs").innerHTML = PROGRAM.map(p => `<a class="chip" href="#${p.id}">${esc(p.nama)}</a>`).join("");
+$("#plist").innerHTML = PROGRAM.map((p, i) => `
+  <article class="pdetail" id="${p.id}">
+    <div class="pvisual">${ph(i, p.icon)}</div>
+    <div>
+      <span class="pjenjang">${esc(p.jenjang)}</span>
+      <h2>${esc(p.nama)}${p.lengkap !== p.nama ? `<small>${esc(p.lengkap)}</small>` : ""}</h2>
+      <p>${esc(p.ringkas)}</p>
+      <ul class="checks">${p.materi.map(m => `<li>${ic("i-check")}<span>${esc(m)}</span></li>`).join("")}</ul>
+    </div>
+  </article>`).join("");
+if (location.hash) { const t = document.querySelector(location.hash); t && t.scrollIntoView(); }
+</script>
+</body>
+</html>

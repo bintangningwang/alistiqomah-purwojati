@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Berita | Pondok Pesantren Al-Istiqomah Purwojati</title>
+<meta name="description" content="Berita, pengumuman, dan kabar kegiatan terbaru Pondok Pesantren Al-Istiqomah Purwojati.">
+<meta property="og:title" content="Berita | Pondok Pesantren Al-Istiqomah Purwojati">
+<meta property="og:description" content="Berita, pengumuman, dan kabar kegiatan terbaru Pondok Pesantren Al-Istiqomah Purwojati.">
+<meta property="og:image" content="img/logo.png">
+<meta name="theme-color" content="#0d5c33">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="berita">
+<div id="site-header"></div>
+
+<main id="konten">
+<section class="hero">
+  <div class="wrap">
+    <div class="crumb" id="crumb"><a href="index.html">Beranda</a><span>/</span><b>Berita</b></div>
+    <span class="pill"><svg class="ico"><use href="#i-cal"/></svg>Kabar Pondok</span>
+    <h1 id="htitle">Berita & Pengumuman</h1>
+    <p id="hsub">Kabar kegiatan, pengumuman, dan informasi terbaru dari Pondok Pesantren Al-Istiqomah Purwojati.</p>
+  </div>
+</section>
+<div class="rainbow"></div>
+
+<section class="block">
+  <div class="wrap" id="berita"></div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const { $, esc, ic, ph, fmtTgl, sortedNews, newsCard } = APP;
+const id = new URLSearchParams(location.search).get("id");
+const list = sortedNews();
+const b = id && list.find(x => x.id === id);
+if (b) {
+  document.title = `${b.judul} | ${SITE.namaLengkap}`;
+  $("#crumb").innerHTML = `<a href="index.html">Beranda</a><span>/</span><a href="berita.html">Berita</a><span>/</span><b>${esc(b.kategori)}</b>`;
+  $("#htitle").textContent = b.judul;
+  $("#hsub").textContent = fmtTgl(b.tanggal);
+  const others = list.filter(x => x.id !== b.id).slice(0, 3);
+  $("#berita").innerHTML = `
+    <article class="article">
+      <div class="acover">${b.gambar ? `<img src="${esc(b.gambar)}" alt="" style="width:100%;height:100%;object-fit:cover">` : ph(1, b.icon)}</div>
+      <div class="abody">
+        <div class="nmeta"><span class="nkat">${esc(b.kategori)}</span><span>${ic("i-cal")}${fmtTgl(b.tanggal)}</span>${b.contoh ? `<span class="todo">Berita contoh</span>` : ""}</div>
+        <h2>${esc(b.judul)}</h2>
+        <div class="prose">${b.isi.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+        <a class="more-link" href="berita.html">${ic("i-left")} Kembali ke daftar berita</a>
+      </div>
+    </article>
+    ${others.length ? `<div class="sec-head" style="margin-top:48px"><h2 class="sec-title">Berita Lainnya</h2></div><div class="ngrid">${others.map(newsCard).join("")}</div>` : ""}`;
+} else {
+  $("#berita").innerHTML = id
+    ? `<p class="empty">Berita tidak ditemukan. <a class="more-link" href="berita.html">Lihat semua berita</a></p>`
+    : `<div class="ngrid">${list.map(newsCard).join("") || `<p class="empty">Belum ada berita.</p>`}</div>`;
+}
+</script>
+</body>
+</html>
